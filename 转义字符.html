@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML转义字符演示</title>
+    <style>
+        /* 简单样式，让对比更清晰 */
+        .demo-box {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            border-color: #ff4444;
+            background-color: #ffebee;
+        }
+        .correct {
+            border-color: #00C851;
+            background-color: #e8f5e9;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>HTML转义字符（字符实体）演示</h2>
+
+    <!-- 案例1：小于号 < 的错误 vs 正确写法 -->
+    <div class="demo-box error">
+        <h3>❌ 错误写法：直接写 &lt; 符号</h3>
+        <p>代码：<code>&lt;p&gt;5 < 10&lt;/p&gt;</code></p>
+        <p>浏览器解析结果：<p>5 < 10</p></p>
+        <p><strong>说明</strong>：浏览器把 &lt; 当作标签开始，导致文本显示不完整</p>
+    </div>
+
+    <div class="demo-box correct">
+        <h3>✅ 正确写法：使用转义字符 &amp;lt;</h3>
+        <p>代码：<code>&lt;p&gt;5 &amp;lt; 10&lt;/p&gt;</code></p>
+        <p>浏览器解析结果：<p>5 &lt; 10</p></p>
+        <p><strong>说明</strong>：&amp;lt; 被正确解析为小于号 &lt;</p>
+    </div>
+
+    <!-- 案例2：和号 & 的错误 vs 正确写法 -->
+    <div class="demo-box error">
+        <h3>❌ 错误写法：直接写 & 符号</h3>
+        <p>代码：<code>&lt;p&gt;张三 & 李四&lt;/p&gt;</code></p>
+        <p>浏览器解析结果：<p>张三 & 李四</p></p>
+        <p><strong>说明</strong>：部分浏览器会解析异常，& 后若接其他字符会被误判为转义字符</p>
+    </div>
+
+    <div class="demo-box correct">
+        <h3>✅ 正确写法：使用转义字符 &amp;amp;</h3>
+        <p>代码：<code>&lt;p&gt;张三 &amp;amp; 李四&lt;/p&gt;</code></p>
+        <p>浏览器解析结果：<p>张三 &amp; 李四</p></p>
+        <p><strong>说明</strong>：&amp;amp; 被正确解析为和号 &amp;</p>
+    </div>
+
+    <!-- 案例3：常用转义字符汇总演示 -->
+    <div class="demo-box">
+        <h3>📋 常用转义字符汇总</h3>
+        <ul>
+            <li>版权符号：<code>&amp;copy;</code> → 显示结果：&copy;</li>
+            <li>小于号：<code>&amp;lt;</code> → 显示结果：&lt;</li>
+            <li>大于号：<code>&amp;gt;</code> → 显示结果：&gt;</li>
+            <li>和号：<code>&amp;amp;</code> → 显示结果：&amp;</li>
+            <li>不换行空格：<code>&amp;nbsp;</code> → 显示结果：这是&nbsp;不换行&nbsp;空格</li>
+        </ul>
+    </div>
+</body>
+</html>
